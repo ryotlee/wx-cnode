@@ -1,0 +1,20 @@
+/* pages/profile/profile.wxss */
+
+.profile-header {
+  text-align: center;
+  height: 30%;
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.profile-body {
+  height: 70%;
+}
+
+.avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+  border: 2rpx solid #ccc;
+}

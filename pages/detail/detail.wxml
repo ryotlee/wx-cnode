@@ -1,0 +1,73 @@
+<!--pages/detail/detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='page'>
+  <view class='container'>
+    <scroll-view style='height: 92%;' scroll-y="{{true}}">
+      <template is="wxParse" data="{{wxParseData:article_content.nodes}}" />
+    </scroll-view>
+    <!--bottom fixed hgroup  -->
+    <view>
+      <view style='border-top: 1rpx solid #ccc; margin-top: 20rpx;margin-bottom: 6rpx;'></view>
+      <view style='display: flex; height: 80rpx;line-height: 80rpx;'>
+        <view style='width: 70rpx;overflow: hidden;'>
+          <image style='width: 60rpx; height: 60rpx; border-radius: 100%;' src='{{topic.author.avatar_url}}'></image>
+        </view>
+        <view style='width: 200rpx; color: #787878;'>
+          {{topic.author.loginname}}
+        </view>
+        <view class='flex-right' style='color: #787878;'>
+           <view catchtap='bindShowModal' style='width: 50rpx;display: inline-block;margin-right: 20rpx;'>
+            <icon class='iconfont icon-message_fill' style='font-size: 50rpx;'></icon>
+          </view> 
+          <view style='display: inline-block;'>
+            <button class='btn-share' open-type='share'>
+              <icon class='iconfont icon-share_fill' style='font-size: 50rpx;'></icon>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='modal bottom_hidden' animation="{{animationData}}" >
+  <view class='modal-container'>
+    <view class='modal-header'>
+      <view style='height: 100%; line-height: 80rpx; color:#505052; font-size: 28rpx; text-align: center;'>{{topic.reply_count}}条评论</view>
+      <view bindtap='bindHideModal' style='position:absolute;top: 0; right:20rpx;'>
+        <icon class='iconfont icon-close' style='color: #505052;'></icon>
+      </view>
+    </view>
+    <view class='modal-body'>
+      <view wx:for="{{topic.replies}}" wx:key="*this">
+        <view class='reply-wrapper'>
+          <!--avatar  -->
+          <view style='width: 60rpx;'>
+            <image src='{{item.author.avatar_url}}' class='avatar'></image>
+          </view>
+          <!--start comment & ups  -->
+          <view class='main_content'>
+          <!--comment  -->
+            <view style='-webkit-flex: 1;flex: 1;'>
+              <view style='font-size:28rpx;color:#565656;'>{{item.author.loginname}}</view>
+              <view>
+                <rich-text style='font-size:24rpx;' nodes="{{item.content}}"></rich-text>
+              </view>
+            </view>
+            <!--ups  -->
+            <view>
+              <view>
+                <icon class='iconfont icon-like_fill' style='color: #505052;font-size:48rpx;'></icon>
+              </view>
+              <view style='color: #505052;font-size:26rpx;text-align:center;'>
+                {{item.ups.length}}
+              </view>
+            </view>
+            <!--end of ups  -->
+          </view>
+          <!--end of commonts & ups  -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+.page {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.scroll-container {
+  height: 100%;
+}

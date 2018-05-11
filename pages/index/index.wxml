@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<import src="../templates/detailRender.wxml"/>
+
+<swiper class='page' current='{{tab}}' bindchange='bindChangePage' circular="true" indicator-dots="{{false}}" autoplay="{{false}}">
+  <swiper-item>
+    <scroll-view bindscrolltoupper="bindUpper" bindscrolltolower="bindLower" class='scroll-container' scroll-y="{{true}}">
+     <block wx:for="{{default_list}}" wx:key="*this">
+       <template is="topic" data="{{...item}}"></template>
+     </block>
+    </scroll-view>
+  </swiper-item>
+  <!--精华  -->
+  <swiper-item>
+    <scroll-view bindscrolltoupper="bindUpper" bindscrolltolower="bindLower" class='scroll-container' scroll-y="{{true}}">
+     <block wx:for="{{good}}" wx:key="*this">
+       <template is="topic" data="{{...item}}"></template>
+     </block>
+    </scroll-view>
+  </swiper-item>
+
+  <!--分享  -->
+  <swiper-item>
+    <scroll-view bindscrolltoupper="bindUpper" bindscrolltolower="bindLower" class='scroll-container' scroll-y="{{true}}">
+    <block wx:for="{{share}}" wx:key="*this">
+       <template is="topic" data="{{...item}}"></template>
+     </block>
+    </scroll-view>
+  </swiper-item>
+
+  <!--问答  -->
+  <swiper-item>
+    <scroll-view bindscrolltoupper="bindUpper" bindscrolltolower="bindLower" class='scroll-container' scroll-y="{{true}}">
+     <block wx:for="{{ask}}" wx:key="*this">
+       <template is="topic" data="{{...item}}"></template>
+     </block>
+    </scroll-view>
+  </swiper-item>
+
+  <!--招聘  -->
+  <swiper-item>
+    <scroll-view bindscrolltoupper="bindUpper" bindscrolltolower="bindLower" class='scroll-container' scroll-y="{{true}}">
+     <block wx:for="{{job}}" wx:key="*this">
+       <template is="topic" data="{{...item}}"></template>
+     </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>

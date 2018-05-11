@@ -1,0 +1,31 @@
+<template name="topic">
+  <view class='list-item'>
+    <navigator url='/pages/detail/detail?id={{id}}&title={{title}}' class='item_title'>
+      <view>
+        {{title}}
+      </view>
+      <view style='font-size: 26rpx; color: #787878;line-height: 26rpx; vertical-align:bottom;overflow:hidden;'>
+        <icon class='iconfont icon-time' style='vertical-align: bottom;'></icon>{{create_at}}
+      </view>
+    </navigator>
+    <view class='spacer'></view>
+    <view class='avatar-group'>
+      <navigator url='/pages/profile/profile?loginname={{author.loginname}}' hover-class='none' class='avatar'>
+        <view style='width: 70rpx; height: 70rpx; margin: 0 auto;overflow:hidden;'>
+          <image src='{{author.avatar_url}}' lazy-load='{{true}}'></image>
+        </view>
+      </navigator>
+      <view class='nickname'>{{author.loginname}}</view>
+      <view class='flex-right'>
+        <view class='icon-group'>
+          <icon class='iconfont icon-coordinates' style='vertical-align: bottom;'></icon>
+          <text>{{reply_count}}</text>
+        </view>
+        <view class='icon-group'>
+          <icon class='iconfont icon-attention_light' style='vertical-align: bottom;'></icon>
+          <text>{{visit_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

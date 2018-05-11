@@ -1,0 +1,45 @@
+<!--pages/profile/profile.wxml-->
+<!--头部信息  -->
+<view class='profile-header'>
+  <view style='margin-top: 30rpx;'>
+    <image bindtap='previewAvatar' class='avatar' src='{{profile.avatar_url}}'></image>
+  </view>
+  <view style='font-size: 50rpx;color: #252525;'>
+    {{profile.loginname}}
+  </view>
+  <view style='font-size: 24rpx;color: #707070;'>
+    @{{profile.githubUsername}}
+  </view>
+</view>
+<!--内容  -->
+<view class='profile-body'>
+  <view style='margin-top: 10px;'>
+    <!--最近创建过的话题  -->
+    <view class="weui-panel">
+      <view class="weui-panel__hd">最近创建过的话题</view>
+      <view class="weui-panel__bd">
+        <navigator wx:for="{{profile.recent_topics}}" wx:key="*this" url="/pages/detail/detail?id={{item.id}}&title={{item.title}}" class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view class="weui-media-box__desc"><icon class='iconfont icon-time' style='vertical-align:bottom;font-size:13px;'></icon>{{item.last_reply_at}}</view>
+        </navigator>
+      </view>
+    </view>
+
+    <!--最近参与过的话题  -->
+    <view class="weui-panel">
+      <view class="weui-panel__hd">最近参与过的话题</view>
+      <view class="weui-panel__bd">
+        <navigator wx:for="{{profile.recent_replies}}" wx:key="*this" url="/pages/detail/detail?id={{item.id}}&title={{item.title}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" style='border-radius: 12rpx;' src="{{item.author.avatar_url}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc"><icon class='iconfont icon-time' style='vertical-align:bottom;font-size:13px;'></icon>{{item.last_reply_at}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+</view>

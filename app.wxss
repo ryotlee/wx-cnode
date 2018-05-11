@@ -1,0 +1,10 @@
+/**app.wxss**/
+@import './styles/weui.wxss';
+@import './styles/iconfont.wxss';
+@import "./wxParse/wxParse.wxss";
+@import "./pages/templates/detailRender.wxss";
+
+page {
+  background-color: #f8f8f8;
+  height: 100vh;
+}
